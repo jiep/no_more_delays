@@ -17,12 +17,6 @@ export class FormComponent implements OnInit {
   msgVal: Object = {};
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
-    this.delays = af.list('/delays', {
-      query: {
-        limitToLast: 50
-      }
-    });
-
     this.user = this.afAuth.authState;
   }
 
@@ -34,11 +28,9 @@ export class FormComponent implements OnInit {
     this.afAuth.auth.signOut();
   }
 
-  send(delay: string) {
-      let uid;
-      this.delays.push({date: new Date(), delay: delay, line: 'L1', station: 'Sol' });
-      this.msgVal = '';
-
+  send(delay: Object) {
+    this.delays.push(delay);
+    this.msgVal = {};
   }
 
   ngOnInit(){}

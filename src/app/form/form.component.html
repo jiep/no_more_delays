@@ -1,43 +1,45 @@
 <section>
   <button class="button is-primary" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login with Google</button>
   <button class="button is-primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-  <div class="control">
-    <div class="field">
-      <label class="label">Delay</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Delay (in minutes)" />
-      </div>
-    </div>
-  </div>
-  <div class="control">
-    <div class="field">
-      <label class="label">Line</label>
-      <div class="control">
-        <div class="select is-fullwidth">
-          <select>
-            <option>L1</option>
-            <option>L2</option>
-          </select>
+  <form>
+    <div class="control">
+      <div class="field">
+        <label class="label">Delay</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="msgVal.delay" type="text" name="delay" placeholder="Delay (in minutes)" />
         </div>
       </div>
     </div>
-  </div>
-  <div class="control">
-    <div class="field">
-      <label class="label">Station</label>
-      <div class="control">
-        <div class="select is-fullwidth">
-          <select>
-            <option>Sol</option>
-            <option>Atocha</option>
-          </select>
+    <div class="control">
+      <div class="field">
+        <label class="label">Line</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select [(ngModel)]="msgVal.line" name="line">
+              <option>L1</option>
+              <option>L2</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="control">
-    <button class="button is-primary is-fullwidth">Send</button>
-  </div>
+    <div class="control">
+      <div class="field">
+        <label class="label">Station</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select [(ngModel)]="msgVal.station" name="station">
+              <option>Sol</option>
+              <option>Atocha</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="control">
+      <button (click)="send(msgVal)" class="button is-primary is-fullwidth">Send</button>
+    </div>
+  </form>
   <!-- <div>
     <h1>List</h1>
     <p *ngFor="let item of delays | async">{{item | json}}</p>
