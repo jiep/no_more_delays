@@ -1,50 +1,27 @@
-<nav class="nav has-shadow">
-  <div class="container">
-    <div class="nav-center">
-      <a class="nav-item">
-        <h1>No more delays</h1>
-      </a>
-    </div>
-  </div>
-</nav>
-
-<section>
-  <button class="button is-primary" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login with Google</button>
-  <button class="button is-primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-  <div class="field">
-    <label class="label">Delay</label>
-    <div class="control">
-      <input class="input" type="text" *ngIf="(user | async)?.uid" placeholder="Delay (in minutes)" />
-    </div>
-  </div>
-  <div class="control">
-    <div class="field">
-      <label class="label">Line</label>
-      <div class="control">
-        <div class="select">
-          <select>
-            <option>L1</option>
-            <option>L2</option>
-          </select>
+<section class="hero is-info is-left is-fullheight wrapper">
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-center">
+          <a class="nav-item">No more delays</a>
         </div>
       </div>
+    </header>
+  </div>
+  <div class="hero-body content">
+    <div class="container has-text-centered height">
+      <h1 class="title is-1">No more delays</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit, est eget facilisis mattis, sem massa dignissim turpis, eget tempor sapien lacus vel nulla. Etiam condimentum bibendum lectus sit amet hendrerit. Donec dapibus odio vel tortor sollicitudin fermentum. Aliquam tempor, massa vitae varius faucibus, libero nisi mollis sem, maximus sagittis lectus lacus non ante. Pellentesque blandit arcu a diam interdum aliquet. Suspendisse efficitur, lorem non consectetur porttitor, est metus faucibus libero, eu condimentum eros urna varius purus. Suspendisse quis erat ac enim convallis luctus sed et erat. Praesent porta ultrices risus, eu fermentum massa finibus sit amet. Suspendisse purus turpis, lobortis quis dapibus a, congue sit amet nulla. Pellentesque urna felis, maximus sit amet diam eget, euismod vestibulum arcu. Donec scelerisque sodales mattis. Donec blandit arcu arcu, non scelerisque nunc scelerisque et. Duis vulputate maximus risus. Pellentesque massa magna, ultrices vitae hendrerit at, venenatis vitae dui. Suspendisse id orci id tellus porta semper. Sed ut magna scelerisque, consequat leo ac, venenatis ante.
+      </p>
+      <p>Suspendisse sit amet molestie mauris, ac tincidunt augue. Cras quis sapien sodales, vulputate augue a, tempus sem. Aenean quis dolor et neque ultricies elementum ut sit amet velit. Vivamus eros leo, iaculis quis rutrum in, molestie at felis. Nunc lobortis dolor eget ligula consectetur, in dignissim ipsum fringilla. In pulvinar tortor et massa commodo, gravida venenatis neque consectetur. Nam tempus dignissim faucibus. Donec sed neque molestie, sagittis lectus sed, faucibus turpis. Aenean dignissim erat eget elementum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin malesuada dolor a hendrerit convallis. Morbi tempor vitae nisi ut venenatis. Praesent interdum justo vel ex tempus, in tincidunt ligula sollicitudin. Pellentesque nec ullamcorper ligula. Aenean et elementum ipsum. Nam eu dui maximus, pretium libero non, pharetra libero.</p>
     </div>
   </div>
-  <div class="control">
-    <div class="field">
-      <label class="label">Station</label>
-      <div class="control">
-        <div class="select">
-          <select>
-            <option>Sol</option>
-            <option>Atocha</option>
-          </select>
-        </div>
-      </div>
+  <div class="hero-foot">
+    <div class="tabs is-boxed is-fullwidth">
+      <ul>
+        <li><a><span>Left</span></a></li>
+        <li><a><span>Right</span></a></li>
+      </ul>
     </div>
-  </div>
-  <div>
-    <h1>List</h1>
-    <p *ngFor="let item of delays | async">{{item | json}}</p>
   </div>
 </section>

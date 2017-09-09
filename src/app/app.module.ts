@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireOfflineModule } from 'angularfire2-offline';
+import { FormComponent } from './form/form.component';
 
 
 export const firebaseConfig = {
@@ -22,7 +23,8 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
