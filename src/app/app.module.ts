@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireOfflineModule } from 'angularfire2-offline';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
+import { DelaysComponent } from './delays/delays.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -24,6 +25,10 @@ const appRoutes: Routes = [
   {
     path: 'new',
     component: FormComponent
+  },
+  {
+    path: 'delays',
+    component: DelaysComponent
   }
 ];
 
@@ -41,7 +46,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     FormComponent,
-    HomeComponent
+    HomeComponent,
+    DelaysComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<div class="menu">
+  <p class="menu-label">Last delays</p>
+  <ul class="menu-list">
+    <li *ngFor="let delay of delays | async"><a>{{delay.date}}</a>
+      <ul>
+          <li><a>{{delay.line}}</a></li>
+          <li><a>{{delay.station}}</a></li>
+          <li><a>{{delay.time}}</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
