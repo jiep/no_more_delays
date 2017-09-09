@@ -1,12 +1,12 @@
 <section>
   <button class="button is-primary" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login with Google</button>
   <button class="button is-primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-  <form>
+  <form #delayForm="ngForm">
     <div class="control">
       <div class="field">
         <label class="label">Delay</label>
         <div class="control">
-          <input class="input" [(ngModel)]="msgVal.delay" type="text" name="delay" placeholder="Delay (in minutes)" />
+          <input class="input" [(ngModel)]="msgVal.time" type="text" name="time" placeholder="Delay (in minutes)" />
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="control">
-      <button (click)="send(msgVal)" class="button is-primary is-fullwidth">Send</button>
+      <button (click)="send(msgVal); delayForm.reset()" class="button is-primary is-fullwidth">Send</button>
     </div>
   </form>
   <!-- <div>

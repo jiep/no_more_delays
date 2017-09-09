@@ -5,6 +5,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
+import { Delay } from '../model/delay';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,9 +16,11 @@ export class FormComponent implements OnInit {
 
   user: Observable<firebase.User>;
   delays: FirebaseListObservable<any[]>;
-  msgVal: Object = {};
+  msgVal: Delay = new Delay("", "", 0);
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+    this.delays = af.list('/delays');
+
     this.user = this.afAuth.authState;
   }
 
@@ -28,9 +32,8 @@ export class FormComponent implements OnInit {
     this.afAuth.auth.signOut();
   }
 
-  send(delay: Object) {
+  send(delay) {
     this.delays.push(delay);
-    this.msgVal = {};
   }
 
   ngOnInit(){}
