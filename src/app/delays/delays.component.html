@@ -1,0 +1,15 @@
+<section>
+  <h1 class="title">Últimos retrasos</h1>
+  <div>
+    <div *ngFor="let delay of delays | async" class="tile is-parent">
+      <article class="tile is-child notification is-warning">
+        <div class="content">
+          <p class="title">Línea: {{delay.line}}</p>
+          <p class="subtitle">Estación: {{delay.station}}</p>
+          <p>Tiempo: {{delay.time}} minutos</p>
+          <p>Fecha: {{delay.date | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

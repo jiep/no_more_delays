@@ -1,0 +1,33 @@
+<section>
+  <div>
+    <h1>Nuevo retraso</h1>
+  </div>
+  <form #delayForm="ngForm">
+    <div class="field">
+      <label class="label">Tiempo</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.time" name="time" type="number" max="999" min="1" placeholder="Tiempo (en minutos)">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Línea de metro</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.line" name="line" type="text" placeholder="Línea de metro">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Estación</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.station" name="station" type="text" placeholder="Estación">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button (click)="send(msgVal); delayForm.reset()" [disabled]="!required()" class="button is-primary is-fullwidth">Enviar</button>
+      </div>
+    </div>
+  </form>
+</section>

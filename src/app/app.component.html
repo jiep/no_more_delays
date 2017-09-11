@@ -1,0 +1,24 @@
+<section class="hero is-info is-left is-fullheight wrapper">
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-center">
+          <a class="nav-item">{{"No more delays" | uppercase }}</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="hero-body content">
+    <div class="container has-text-centered height">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="tabs is-boxed is-fullwidth">
+      <ul>
+        <li><a href="/new"> <span><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i></span> Nuevo</a></li>
+        <li><a href="/delays"> <span><i class="fa fa-list-ul fa-fw" aria-hidden="true"></i></span>Ver últimos</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
