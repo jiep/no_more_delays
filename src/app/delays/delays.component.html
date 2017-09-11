@@ -1,12 +1,15 @@
-<div class="menu">
-  <p class="menu-label">Last delays</p>
-  <ul class="menu-list">
-    <li *ngFor="let delay of delays | async"><a>{{delay.date}}</a>
-      <ul>
-          <li><a>{{delay.line}}</a></li>
-          <li><a>{{delay.station}}</a></li>
-          <li><a>{{delay.time}}</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<section>
+  <h1 class="title">Últimos retrasos</h1>
+  <div>
+    <div *ngFor="let delay of delays | async" class="tile is-parent">
+      <article class="tile is-child notification is-warning">
+        <div class="content">
+          <p class="title">Línea: {{delay.line}}</p>
+          <p class="subtitle">Estación: {{delay.station}}</p>
+          <p>Tiempo: {{delay.time}} minutos</p>
+          <p>Fecha: {{delay.date | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

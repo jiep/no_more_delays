@@ -1,43 +1,33 @@
 <section>
-  <button class="button is-primary" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login with Google</button>
-  <button class="button is-primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+  <div>
+    <h1>Nuevo retraso</h1>
+  </div>
   <form #delayForm="ngForm">
-    <div class="control">
-      <div class="field">
-        <label class="label">Delay</label>
-        <div class="control">
-          <input class="input" [(ngModel)]="msgVal.time" type="text" name="time" placeholder="Delay (in minutes)" />
-        </div>
+    <div class="field">
+      <label class="label">Tiempo</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.time" name="time" type="number" max="999" min="1" placeholder="Tiempo (en minutos)">
       </div>
     </div>
-    <div class="control">
-      <div class="field">
-        <label class="label">Line</label>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select [(ngModel)]="msgVal.line" name="line">
-              <option>L1</option>
-              <option>L2</option>
-            </select>
-          </div>
-        </div>
+
+    <div class="field">
+      <label class="label">Línea de metro</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.line" name="line" type="text" placeholder="Línea de metro">
       </div>
     </div>
-    <div class="control">
-      <div class="field">
-        <label class="label">Station</label>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select [(ngModel)]="msgVal.station" name="station">
-              <option>Sol</option>
-              <option>Atocha</option>
-            </select>
-          </div>
-        </div>
+
+    <div class="field">
+      <label class="label">Estación</label>
+      <div class="control">
+        <input required class="input" [(ngModel)]="msgVal.station" name="station" type="text" placeholder="Estación">
       </div>
     </div>
-    <div class="control">
-      <button (click)="send(msgVal); delayForm.reset()" class="button is-primary is-fullwidth">Send</button>
+
+    <div class="field">
+      <div class="control">
+        <button (click)="send(msgVal); delayForm.reset()" [disabled]="!required()" class="button is-primary is-fullwidth">Enviar</button>
+      </div>
     </div>
   </form>
 </section>

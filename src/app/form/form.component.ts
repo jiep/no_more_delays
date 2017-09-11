@@ -36,6 +36,10 @@ export class FormComponent implements OnInit {
     this.delays.push(delay);
   }
 
+  required() : boolean {
+    return this.msgVal.date !== "" && this.msgVal.line !== "" && this.msgVal.station !== "" && this.msgVal.time > 0;
+  }
+
   ngOnInit(){}
 
 }
